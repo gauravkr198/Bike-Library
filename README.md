@@ -1,85 +1,106 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🚲 Bike Library API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A RESTful API built using [Nest.js](https://nestjs.com/) to manage a library of bikes. The API supports CRUD operations and includes **Swagger** documentation for easy testing and interaction.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
+- 🚀 **CRUD Operations**: Create, Read, Update, and Delete bikes.
+- 📚 **SQLite** for data persistence.
+- 🛡️ **DTO (Data Transfer Object)** validation using `class-validator`.
+- 🛠️ **Swagger Documentation** for testing and interacting with the API directly from the browser.
 
-## Description
+## Table of Contents
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+  - [Testing the API with Swagger](#testing-the-api-with-swagger)
+- [Endpoints](#endpoints)
+- [Swagger Documentation](#swagger-documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Getting Started
 
-## Project setup
+### Prerequisites
+Before you begin, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (version 12.x or higher)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [SQLite](https://www.sqlite.org/index.html) (Optional for inspecting the database)
 
-```bash
-$ npm install
-```
+### Installation
 
-## Compile and run the project
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/gauravkr198/Bike-Library
 
-```bash
-# development
-$ npm run start
+2. Navigate to the project directory:
+    ```bash
+    cd Bike-Library
+    ```
 
-# watch mode
-$ npm run start:dev
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-# production mode
-$ npm run start:prod
-```
+### Running the Application
 
-## Run tests
+1. Start the application in development mode:
+    ```bash
+    npm run start
+    ```
 
-```bash
-# unit tests
-$ npm run test
+2. The API will be running at:
+    ```
+    http://localhost:3000/api
+    ```
 
-# e2e tests
-$ npm run test:e2e
+### Testing the API with Swagger
 
-# test coverage
-$ npm run test:cov
-```
+Once the application is running, you can test and interact with the API through the built-in Swagger documentation.
 
-## Resources
+1. Open your browser and navigate to:
+    ```
+    http://localhost:3000/api
+    ```
 
-Check out a few resources that may come in handy when working with NestJS:
+2. You’ll find an interactive UI to execute the API's endpoints and view detailed documentation.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## Endpoints
 
-## Support
+| Method | Endpoint       | Description                   |
+|--------|----------------|-------------------------------|
+| GET    | `/bikes`       | Get a list of all bikes       |
+| GET    | `/bikes/:id`   | Get details of a specific bike|
+| POST   | `/bikes`       | Add a new bike                |
+| PUT    | `/bikes/:id`   | Update details of a bike      |
+| DELETE | `/bikes/:id`   | Remove a bike from the library|
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Example of Adding a Bike (POST `/bikes`)
+```json
+{
+  "make": "Yamaha",
+  "model": "R15",
+  "year": 2022,
+  "type": "Sport"
+}
 
-## Stay in touch
+![Screenshot 2024-10-10 212149](https://github.com/user-attachments/assets/5de1c100-cf2c-4ffc-85c4-b6dffd043b43)
+![Screenshot 2024-10-10 204300](https://github.com/user-attachments/assets/d40a0153-9dc8-4ace-9c56-8e5ba6ccc5ca)
+![Screenshot 2024-10-10 204340](https://github.com/user-attachments/assets/0c436118-04b0-42a5-9c36-e2c70cf8decc)
+![Screenshot 2024-10-10 204824](https://github.com/user-attachments/assets/3eb7914a-7a4c-4826-97ca-68a47f084ede)
+![Screenshot 2024-10-10 205034](https://github.com/user-attachments/assets/9b60096c-8c37-46e0-a3ce-722cf44031b3)
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+ 
+
+
+ 
+
+ 
+ 
+
+ 
+
